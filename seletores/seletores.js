@@ -4,10 +4,27 @@
 $(function(){
 
     var selecionarTodosUsuarios = $('#selecao-todos-usuarios');
-    var selecionarUsuarios = $('.js-selecao-usuario');
+    var selecaoUsuarios = $('.js-selecao-usuario');
 
-    selecionarUsuarios.on('click',function () {
+    function estilizarLinhaUsuarios() {
+        selecaoUsuarios.filter(':checked').parents('tr').addClass('selecionado');
+        selecaoUsuarios.filter(':not(:checked)').parents('tr').removeClass('selecionado');
 
+    }
+
+    selecaoUsuarios.on('click',function () {
+        var totalUsuariosSelecionados = selecaoUsuarios.filter(':checked').length;
+        var checked = selecaoUsuarios.length === totalUsuariosSelecionados;
+        selecionarTodosUsuarios.prop('checked', checked);
+    });
+
+    selecionarTodosUsuarios.on('click', function () {
+        selecaoUsuarios.prop('checked', selecionarTodosUsuarios.prop('checked'));
+        estilizarLinhaUsuarios();
+    });
+
+    selecaoUsuarios.on('change', function () {
+        estilizarLinhaUsuarios();
     });
 
 });
