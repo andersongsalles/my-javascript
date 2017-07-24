@@ -1,0 +1,1 @@
+[{"codigo":1,"uf":"MG","nome":"Minas Gerais"},{"codigo":2,"uf":"SP","nome":"São Paulo"},{"codigo":3,"uf":"GO","nome":"Goiás"}]
